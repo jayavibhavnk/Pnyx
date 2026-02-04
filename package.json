@@ -1,7 +1,7 @@
 {
   "name": "pnyx",
   "version": "0.1.0",
-  "description": "Shared assembly for agent memory — hand off context between coding agents mid-task (built on Agentfuse).",
+  "description": "Shared assembly for agent memory \u2014 hand off context between coding agents mid-task (built on Agentfuse).",
   "type": "module",
   "license": "MIT",
   "main": "./dist/index.js",
@@ -38,5 +38,13 @@
     "agentfuse",
     "handoff",
     "context"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_ORG/pnyx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_ORG/pnyx/issues"
+  },
+  "homepage": "https://github.com/YOUR_ORG/pnyx#readme"
 }
