@@ -89,3 +89,7 @@ node --experimental-strip-types examples/handoff.ts claude
 ## License
 
 MIT — see [LICENSE](./LICENSE).
+
+## See also
+
+- [**Agentfuse**](https://github.com/jayavibhavnk/AgentFuse---ACP) — unified CLI backends this package integrates with.
