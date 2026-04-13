@@ -73,18 +73,3 @@ export function appendFromFuseMessage(
       break;
   }
 }
-
-/**
- * Build a single prompt string for Agentfuse: shared block + user instruction.
- */
-export function mergePrompt(sharedBlock: string, instruction: string): string {
-  const s = sharedBlock.trim();
-  const i = instruction.trim();
-  if (!s) {
-    return i;
-  }
-  if (!i) {
-    return s;
-  }
-  return `${s}\n\n${i}`;
-}

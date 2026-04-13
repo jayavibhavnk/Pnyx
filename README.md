@@ -11,19 +11,40 @@ Pnyx is **not** Multica. It is a small, standalone package you can embed in runn
 - **One transcript per task** — append-only entries with roles (`system`, `user`, `assistant`, `tool`).
 - **Live handoffs** — `subscribe()` for the moment another agent adds context.
 - **Same-process sharing** — `AssemblyRegistry` maps a `taskId` to one `SharedMemory` instance.
-- **Agentfuse bridge** — `appendFromFuseMessage()` folds streaming CLI output into the transcript; `mergePrompt()` prefixes the next prompt.
+- **Agentfuse bridge (optional)** — import from `pnyx/agentfuse` to fold streaming CLI output into the transcript; `mergePrompt()` is also on the core entry.
 
 Upstream CLIs remain **separate installs** (Agentfuse). Pnyx does not ship them.
 
 ---
 
+## Compatibility
+
+| Concern | Details |
+|--------|---------|
+| **Runtime** | **Node.js 20+** (ESM). Tested with current Node LTS. |
+| **Module format** | **ESM only** (`"type": "module"`). Use `import`, not `require`. |
+| **Agentfuse** | **Optional peer** — install `agentfuse` only if you use `import { appendFromFuseMessage } from "pnyx/agentfuse"`. Core memory APIs need no other packages. |
+| **Package managers** | **npm**, **pnpm**, **Yarn** (Berry and classic) — `peerDependenciesMeta.optional` avoids spurious install warnings when you skip Agentfuse. |
+| **Bundlers** | **`exports`** + **`sideEffects: false`** for tree-shaking in Vite, Webpack 5, Rollup, esbuild. |
+| **TypeScript** | **≥5** recommended; types ship in `dist/*.d.ts`. |
+
+---
+
 ## Install
+
+**Memory + registry only** (no Agentfuse):
 
 ```bash
 npm install pnyx
 ```
 
-You also need **`agentfuse`** (peer-style dependency in your app). Local development in this repo uses `file:../agentfuse`.
+**With Agentfuse bridge** (CLI orchestration):
+
+```bash
+npm install pnyx agentfuse
+```
+
+Local development in this repo uses `file:../agentfuse` as a dev dependency.
 
 ---
 
@@ -51,12 +72,16 @@ const prompt = mergePrompt(
 
 ## API
 
-| Export | Role |
-|--------|------|
-| `SharedMemory` | Append, `read`, `readAfter`, `subscribe`, `toPromptBlock` |
-| `AssemblyRegistry` | `getOrCreate(taskId)`, `release`, `clear` |
-| `appendFromFuseMessage(mem, message, { providerId })` | Mirror Agentfuse stream into memory |
-| `mergePrompt(sharedBlock, instruction)` | Concatenate for the next run |
+| Export | Module | Role |
+|--------|--------|------|
+| `SharedMemory` | `pnyx` | Append, `read`, `readAfter`, `subscribe`, `toPromptBlock` |
+| `AssemblyRegistry` | `pnyx` | `getOrCreate(taskId)`, `release`, `clear` |
+| `mergePrompt` | `pnyx` or `pnyx/agentfuse` | Concatenate shared block + next instruction |
+| `appendFromFuseMessage` | `pnyx/agentfuse` | Mirror Agentfuse `Message` stream into memory |
+
+```typescript
+import { appendFromFuseMessage } from "pnyx/agentfuse";
+```
 
 ---
 

@@ -5,8 +5,8 @@ Pnyx is intentionally small: memory + registry + Agentfuse glue. Keep changes fo
 ## Setup
 
 ```bash
-git clone <your-fork>
-cd pnyx
+git clone https://github.com/jayavibhavnk/Pnyx.git
+cd Pnyx
 npm install
 ```
 
