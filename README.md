@@ -2,7 +2,7 @@
 
 **Pnyx** (Greek *Πνύξ*) was the hill in ancient Athens where the *ekklēsia* assembled — citizens spoke in turn, and what was said became the shared record of the city’s work. This library is that idea for **coding agents**: a **shared memory layer** so multiple agents (or multiple turns) can **hand off context mid-task**, built on [**Agentfuse**](https://github.com/jayavibhavnk/AgentFuse---ACP).
 
-Pnyx is **not** Multica. It is a small, standalone package you can embed in runners, IDEs, or orchestrators.
+It is a small, standalone package you can embed in runners, IDEs, or orchestrators.
 
 The npm package name is **`@jayavibhavnk/pnyx`** (scoped for GitHub Packages).
 
