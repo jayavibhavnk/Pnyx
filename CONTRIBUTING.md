@@ -14,8 +14,7 @@ Build Agentfuse once (sibling checkout):
 
 ```bash
 (cd ../agentfuse && npm run build)
-npm run build
-npm test
+npm run verify
 ```
 
 ## Guidelines

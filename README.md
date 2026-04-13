@@ -65,8 +65,7 @@ const prompt = mergePrompt(
 ```bash
 npm install
 npm run build   # requires ../agentfuse built: (cd ../agentfuse && npm run build)
-npm test
-npm run typecheck
+npm run verify  # build + test + typecheck + smoke (no CLI required)
 ```
 
 ### Example
@@ -89,7 +88,3 @@ node --experimental-strip-types examples/handoff.ts claude
 ## License
 
 MIT — see [LICENSE](./LICENSE).
-
-## See also
-
-- [**Agentfuse**](https://github.com/jayavibhavnk/AgentFuse---ACP) — unified CLI backends this package integrates with.

@@ -19,6 +19,8 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "smoke": "node ./scripts/smoke-dist.mjs",
+    "verify": "npm run build && npm test && npm run typecheck && npm run smoke",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {

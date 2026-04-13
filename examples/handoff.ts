@@ -50,6 +50,9 @@ async function main(): Promise<void> {
   }
   const result = await handle.result;
   console.error("\n---\nstatus:", result.status, "ms:", result.durationMs);
+  if (result.status !== "completed") {
+    process.exit(1);
+  }
 }
 
 main().catch((e) => {
