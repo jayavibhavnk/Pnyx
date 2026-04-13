@@ -4,17 +4,11 @@ Pnyx is intentionally small: memory + registry + Agentfuse glue. Keep changes fo
 
 ## Setup
 
-```bash
-git clone https://github.com/jayavibhavnk/Pnyx.git
-cd Pnyx
-npm install
-```
-
-Build Agentfuse once (sibling checkout):
+Clone this repo and [Agentfuse](https://github.com/jayavibhavnk/AgentFuse---ACP) as **siblings** (see README). Then:
 
 ```bash
-(cd ../agentfuse && npm run build)
-npm run verify
+cd ../agentfuse && npm install && npm run build
+cd ../Pnyx && npm install && npm run verify
 ```
 
 ## Guidelines

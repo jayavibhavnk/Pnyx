@@ -1,12 +1,15 @@
 {
-  "name": "pnyx",
-  "version": "0.2.0",
+  "name": "@jayavibhavnk/pnyx",
+  "version": "0.3.0",
   "description": "Shared assembly for agent memory — hand off context between coding agents mid-task (optional Agentfuse integration).",
   "type": "module",
   "license": "MIT",
   "sideEffects": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

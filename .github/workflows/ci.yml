@@ -1,0 +1,33 @@
+# Run tests on push and PR (no publish).
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: pnyx
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: pnyx
+      - uses: actions/checkout@v4
+        with:
+          repository: jayavibhavnk/AgentFuse---ACP
+          path: agentfuse
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: pnyx/package-lock.json
+      - name: Build Agentfuse (devDependency is file:../agentfuse)
+        run: cd ../agentfuse && npm ci && npm run build
+      - run: npm ci
+      - run: npm run verify

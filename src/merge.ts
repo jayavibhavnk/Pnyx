@@ -1,6 +1,6 @@
 /**
  * Build a single prompt string: shared transcript block + next instruction.
- * Zero dependencies — safe to import from core `pnyx` without Agentfuse.
+ * Zero dependencies — safe to import from the core package without Agentfuse.
  */
 export function mergePrompt(sharedBlock: string, instruction: string): string {
   const s = sharedBlock.trim();

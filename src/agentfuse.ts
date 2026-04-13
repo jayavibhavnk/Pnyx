@@ -1,6 +1,6 @@
 /**
- * Agentfuse integration — import from `pnyx/agentfuse` so your app can depend
- * on `pnyx` alone until you wire in Agentfuse (`peerDependencies`).
+ * Agentfuse integration — import from `@jayavibhavnk/pnyx/agentfuse` so your app
+ * can depend on the core package alone until you wire in Agentfuse (`peerDependencies`).
  */
 export { appendFromFuseMessage } from "./fuse.js";
 export { mergePrompt } from "./merge.js";
